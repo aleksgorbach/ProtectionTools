@@ -1,0 +1,10 @@
+﻿{
+  "AppSettings": {
+    "SiteTitle": "ProtectionTools"
+  },
+  "Data": {
+    "DefaultConnection": {
+      "ConnectionString": "Server=(localdb)\\mssqllocaldb;Database=aspnet5-ProtectionTools-e6da81bf-e18a-4a52-9b66-af47451acc6a;Trusted_Connection=True;MultipleActiveResultSets=true"
+    }
+  }
+}
