@@ -12,6 +12,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "ProtectionTools", "src\ProtectionTools\ProtectionTools.xproj", "{19320E5D-922E-4C1D-8582-61F06354DFB0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProtectionTools.Core", "ProtectionTools.Core\ProtectionTools.Core.csproj", "{A1949F65-F93B-4E92-A751-B95E94FCBE41}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProtectionTools.Core.Tests", "ProtectionTools.Core.Tests\ProtectionTools.Core.Tests.csproj", "{D7677C55-E77B-44DB-B2E5-7B4EDC9E615C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -22,6 +26,14 @@ Global
 		{19320E5D-922E-4C1D-8582-61F06354DFB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19320E5D-922E-4C1D-8582-61F06354DFB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{19320E5D-922E-4C1D-8582-61F06354DFB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1949F65-F93B-4E92-A751-B95E94FCBE41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1949F65-F93B-4E92-A751-B95E94FCBE41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1949F65-F93B-4E92-A751-B95E94FCBE41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1949F65-F93B-4E92-A751-B95E94FCBE41}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7677C55-E77B-44DB-B2E5-7B4EDC9E615C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7677C55-E77B-44DB-B2E5-7B4EDC9E615C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7677C55-E77B-44DB-B2E5-7B4EDC9E615C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7677C55-E77B-44DB-B2E5-7B4EDC9E615C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
