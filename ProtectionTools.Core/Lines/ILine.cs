@@ -2,6 +2,6 @@
 // Modified by  07.12.2015 at 14:48
 
 namespace ProtectionTools.Core.Lines {
-    internal interface ILine {
+    public interface ILine {
     }
 }

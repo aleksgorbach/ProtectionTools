@@ -1,5 +1,5 @@
 ﻿// Created 07.12.2015
-// Modified by  07.12.2015 at 14:52
+// Modified by Александр 07.12.2015 at 20:36
 
 namespace ProtectionTools.Core.Elements {
     #region References
@@ -10,7 +10,7 @@ namespace ProtectionTools.Core.Elements {
 
     #endregion
 
-    internal interface IChainElement : IConnectable {
+    public interface IChainElement : IConnectable {
         IEnumerable<IConnection> Connections { get; }
     }
 }

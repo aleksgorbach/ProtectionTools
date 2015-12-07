@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A1949F65-F93B-4E92-A751-B95E94FCBE41}</ProjectGuid>
+    <ProjectGuid>{47C3E923-91DF-47A0-936D-BF99D23D9C36}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ProtectionTools.Core</RootNamespace>
-    <AssemblyName>ProtectionTools.Core</AssemblyName>
+    <RootNamespace>DataAccessLayer</RootNamespace>
+    <AssemblyName>DataAccessLayer</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,10 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -44,31 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Elements\AbstractChainElement.cs" />
-    <Compile Include="Elements\Connections\Connection.cs" />
-    <Compile Include="Elements\Connections\Factory\ConnectionFactory.cs" />
-    <Compile Include="Elements\Connections\Factory\IConnectionFactory.cs" />
-    <Compile Include="Elements\Connections\IConnection.cs" />
-    <Compile Include="Elements\ElectroReceivers\IElectroReceiver.cs" />
-    <Compile Include="Elements\IChainElement.cs" />
-    <Compile Include="Elements\Protectors\Preventer.cs" />
-    <Compile Include="Lines\Factories\ILineFactory.cs" />
-    <Compile Include="Lines\Factories\LineFactory.cs" />
-    <Compile Include="Lines\IConnectable.cs" />
-    <Compile Include="Lines\ILine.cs" />
-    <Compile Include="Lines\Implementations\SimpleLine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Systems\ElectricSystem.cs" />
-    <Compile Include="Systems\IElectricSystem.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj">
-      <Project>{47c3e923-91df-47a0-936d-bf99d23d9c36}</Project>
-      <Name>DataAccessLayer</Name>
-    </ProjectReference>
+    <Compile Include="Repository\IRepository.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

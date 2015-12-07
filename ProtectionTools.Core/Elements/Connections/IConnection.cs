@@ -11,7 +11,7 @@ namespace ProtectionTools.Core.Elements.Connections {
     /// <summary>
     /// Line connection to element
     /// </summary>
-    internal interface IConnection {
+    public interface IConnection {
         IConnectable Element { get; }
         ILine Line { get; }
     }

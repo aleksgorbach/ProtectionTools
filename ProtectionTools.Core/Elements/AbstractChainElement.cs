@@ -1,5 +1,5 @@
 ﻿// Created 07.12.2015
-// Modified by  07.12.2015 at 15:03
+// Modified by Александр 07.12.2015 at 21:02
 
 namespace ProtectionTools.Core.Elements {
     #region References
@@ -12,11 +12,11 @@ namespace ProtectionTools.Core.Elements {
 
     #endregion
 
-    internal abstract class AbstractChainElement : IChainElement {
+    public abstract class AbstractChainElement : IChainElement {
         private readonly IConnectionFactory _connectionFactory;
         private readonly List<IConnection> _connections;
 
-        protected AbstractChainElement(IConnectionFactory connectionFactory) {
+        public AbstractChainElement(IConnectionFactory connectionFactory) {
             _connectionFactory = connectionFactory;
             _connections = new List<IConnection>();
         }

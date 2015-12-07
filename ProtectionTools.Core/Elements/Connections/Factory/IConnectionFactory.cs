@@ -8,7 +8,7 @@ namespace ProtectionTools.Core.Elements.Connections.Factory {
 
     #endregion
 
-    internal interface IConnectionFactory {
+    public interface IConnectionFactory {
         IConnection Create(IConnectable element);
     }
 }

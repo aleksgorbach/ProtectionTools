@@ -1,8 +1,8 @@
 ﻿// Created 07.12.2015
-// Modified by  07.12.2015 at 14:59
+// Modified by Александр 07.12.2015 at 20:35
 
 namespace ProtectionTools.Core.Lines {
-    internal interface IConnectable {
+    public interface IConnectable {
         /// <summary>
         /// Connects the element with other
         /// </summary>

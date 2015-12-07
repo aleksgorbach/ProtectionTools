@@ -8,7 +8,7 @@ namespace ProtectionTools.Core.Elements.Protectors {
 
     #endregion
 
-    internal class Preventer : AbstractChainElement {
+    public class Preventer : AbstractChainElement {
         public Preventer(IConnectionFactory connectionFactory) : base(connectionFactory) {
         }
     }
