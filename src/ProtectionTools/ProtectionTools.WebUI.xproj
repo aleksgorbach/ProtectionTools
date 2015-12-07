@@ -6,7 +6,7 @@
   </PropertyGroup>
   <Import Project="$(VSToolsPath)\DNX\Microsoft.DNX.Props" Condition="'$(VSToolsPath)' != ''" />
   <PropertyGroup Label="Globals">
-    <ProjectGuid>19320e5d-922e-4c1d-8582-61f06354dfb0</ProjectGuid>
+    <ProjectGuid>e5803edc-328b-40d5-aedb-8eab62aaec57</ProjectGuid>
     <RootNamespace>ProtectionTools</RootNamespace>
     <BaseIntermediateOutputPath Condition="'$(BaseIntermediateOutputPath)'=='' ">..\..\artifacts\obj\$(MSBuildProjectName)</BaseIntermediateOutputPath>
     <OutputPath Condition="'$(OutputPath)'=='' ">..\..\artifacts\bin\$(MSBuildProjectName)\</OutputPath>
@@ -15,5 +15,8 @@
     <SchemaVersion>2.0</SchemaVersion>
     <DevelopmentServerPort>2825</DevelopmentServerPort>
   </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\ProtectionTools.Core\ProtectionTools.Core.csproj" />
+  </ItemGroup>
   <Import Project="$(VSToolsPath)\DNX\Microsoft.DNX.targets" Condition="'$(VSToolsPath)' != ''" />
 </Project>
