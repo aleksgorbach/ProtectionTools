@@ -1,5 +1,5 @@
 ﻿// Created 07.12.2015
-// Modified by Александр 07.12.2015 at 21:02
+// Modified by  08.12.2015 at 14:38
 
 namespace ProtectionTools.Core.Elements {
     #region References
@@ -8,28 +8,65 @@ namespace ProtectionTools.Core.Elements {
     using System.Linq;
     using Connections;
     using Connections.Factory;
+    using Exceptions.Connections;
     using Lines;
 
     #endregion
 
-    public abstract class AbstractChainElement : IChainElement {
+    public abstract class AbstractChainElement : IConnectable {
+        private const int MAX_INPUTS = 1;
+        private const int MAX_OUTPUTS = 1;
         private readonly IConnectionFactory _connectionFactory;
-        private readonly List<IConnection> _connections;
+        private readonly List<IConnection> _inputConnections;
+        private readonly List<IConnection> _outputConnections;
 
-        public AbstractChainElement(IConnectionFactory connectionFactory) {
+        protected AbstractChainElement(IConnectionFactory connectionFactory) {
             _connectionFactory = connectionFactory;
-            _connections = new List<IConnection>();
+            MaxInputsCount = MAX_INPUTS;
+            MaxOutputsCount = MAX_OUTPUTS;
+            _inputConnections = new List<IConnection>();
+            _outputConnections = new List<IConnection>();
         }
 
-        public ILine Connect(IConnectable element) {
-            var connection = _connections.FirstOrDefault(x => x.Element == element);
-            if (connection == null) {
-                connection = _connectionFactory.Create(element);
-                _connections.Add(connection);
+        protected virtual int MaxInputsCount { get; }
+        protected virtual int MaxOutputsCount { get; }
+
+        public ICollection<IConnection> InConnections => _inputConnections;
+
+        public ICollection<IConnection> OutConnections => _outputConnections;
+
+        public IConnection ConnectInput(IConnectable element) {
+            if (_inputConnections.Count == MaxInputsCount) {
+                throw new ElementInputBusyException(this, element);
             }
-            return connection.Line;
+            var connection = _connectionFactory.Create(element);
+            _inputConnections.Add(connection);
+            return connection;
         }
 
-        public IEnumerable<IConnection> Connections => _connections;
+        public IConnection ConnectOutput(IConnectable element) {
+            if (_outputConnections.Count == MaxOutputsCount) {
+                throw new ElementOutputBusyException(this, element);
+            }
+            var connection = _connectionFactory.Create(element);
+            _outputConnections.Add(connection);
+            return connection;
+        }
+
+        public void DisconnectInput(IConnectable element) {
+            RemoveConnection(_inputConnections, element);
+        }
+
+        public void DisconnectOutput(IConnectable element) {
+            RemoveConnection(_outputConnections, element);
+        }
+
+        private void RemoveConnection(ICollection<IConnection> source, IConnectable element) {
+            var connection = source.FirstOrDefault(x => x.Element == element);
+            if (connection == null) {
+                throw new ConnectionMissingException(this, element);
+            }
+            source.Remove(connection);
+        }
     }
 }

@@ -1,7 +1,7 @@
-﻿// Created 06.12.2015
-// Modified by Александр 06.12.2015 at 21:13
+﻿// Created 07.12.2015
+// Modified by  08.12.2015 at 11:41
 
 namespace ProtectionTools.Core.Systems {
-    internal interface IElectricSystem {
+    public interface IElectricSystem {
     }
 }

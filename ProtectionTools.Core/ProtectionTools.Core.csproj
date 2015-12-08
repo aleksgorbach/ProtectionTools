@@ -44,14 +44,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Buses\SimpleBus.cs" />
     <Compile Include="Elements\AbstractChainElement.cs" />
     <Compile Include="Elements\Connections\Connection.cs" />
     <Compile Include="Elements\Connections\Factory\ConnectionFactory.cs" />
     <Compile Include="Elements\Connections\Factory\IConnectionFactory.cs" />
     <Compile Include="Elements\Connections\IConnection.cs" />
     <Compile Include="Elements\ElectroReceivers\IElectroReceiver.cs" />
-    <Compile Include="Elements\IChainElement.cs" />
     <Compile Include="Elements\Protectors\Preventer.cs" />
+    <Compile Include="Exceptions\Connections\ConnectionMissingException.cs" />
+    <Compile Include="Exceptions\Connections\ElementBusyException.cs" />
+    <Compile Include="Exceptions\Connections\ElementInputBusyException.cs" />
+    <Compile Include="Exceptions\Connections\ElementOutputBusyException.cs" />
     <Compile Include="Lines\Factories\ILineFactory.cs" />
     <Compile Include="Lines\Factories\LineFactory.cs" />
     <Compile Include="Lines\IConnectable.cs" />
