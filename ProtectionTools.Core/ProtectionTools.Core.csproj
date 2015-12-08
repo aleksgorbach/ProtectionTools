@@ -50,7 +50,10 @@
     <Compile Include="Elements\Connections\Factory\ConnectionFactory.cs" />
     <Compile Include="Elements\Connections\Factory\IConnectionFactory.cs" />
     <Compile Include="Elements\Connections\IConnection.cs" />
+    <Compile Include="Elements\ElectroReceivers\ElectroReceiver.cs" />
     <Compile Include="Elements\ElectroReceivers\IElectroReceiver.cs" />
+    <Compile Include="Elements\Groups\ElementGroup.cs" />
+    <Compile Include="Elements\Groups\IElementGroup.cs" />
     <Compile Include="Elements\Protectors\Preventer.cs" />
     <Compile Include="Exceptions\Connections\ConnectionMissingException.cs" />
     <Compile Include="Exceptions\Connections\ElementBusyException.cs" />
