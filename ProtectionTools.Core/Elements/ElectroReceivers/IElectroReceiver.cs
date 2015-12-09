@@ -1,5 +1,5 @@
-﻿// Created 07.12.2015
-// Modified by Александр 08.12.2015 at 21:13
+﻿// Created 08.12.2015
+// Modified by  09.12.2015 at 15:18
 
 namespace ProtectionTools.Core.Elements.ElectroReceivers {
     public enum ConnectionType {
@@ -8,11 +8,29 @@ namespace ProtectionTools.Core.Elements.ElectroReceivers {
 
     public interface IElectroReceiver {
         ConnectionType ConnectionType { get; }
+
+        /// <summary>
+        /// Номинальная активная мощность
+        /// </summary>
         double ActivePower { get; }
+
         int Count { get; }
+
+        /// <summary>
+        /// Коэффициент использования
+        /// </summary>
         double UsingCoefficient { get; }
+
         double Cos { get; }
+
+        /// <summary>
+        /// Общая номинальная мощность
+        /// </summary>
         double TotalNominalPower { get; }
+
+        /// <summary>
+        /// Расчетная реактивная мощность
+        /// </summary>
         double ReactiveLoad { get; }
     }
 }

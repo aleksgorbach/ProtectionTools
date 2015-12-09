@@ -1,5 +1,5 @@
-﻿// Created 08.12.2015
-// Modified by Александр 08.12.2015 at 20:10
+﻿// Created 09.12.2015
+// Modified by  09.12.2015 at 15:18
 
 namespace ProtectionTools.Core.Elements.ElectroReceivers {
     #region References

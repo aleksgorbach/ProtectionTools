@@ -1,5 +1,5 @@
 ﻿// Created 07.12.2015
-// Modified by  08.12.2015 at 14:38
+// Modified by  09.12.2015 at 14:56
 
 namespace ProtectionTools.Core.Elements {
     #region References
@@ -35,6 +35,8 @@ namespace ProtectionTools.Core.Elements {
 
         public ICollection<IConnection> OutConnections => _outputConnections;
 
+        #region Connections management
+
         public IConnection ConnectInput(IConnectable element) {
             if (_inputConnections.Count == MaxInputsCount) {
                 throw new ElementInputBusyException(this, element);
@@ -68,5 +70,7 @@ namespace ProtectionTools.Core.Elements {
             }
             source.Remove(connection);
         }
+
+        #endregion
     }
 }
