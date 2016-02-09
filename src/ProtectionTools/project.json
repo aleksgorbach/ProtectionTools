@@ -37,6 +37,7 @@
     "frameworks": {
         "dnx451": {
             "dependencies": {
+                "ProtectionTools.Core.FSharp": "1.0.0-*"
             }
         },
         "dnxcore50": { }

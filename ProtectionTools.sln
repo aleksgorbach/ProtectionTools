@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{7DCFDCFB-89AE-4C06-837C-CA2653C1192B}"
 EndProject
@@ -19,6 +19,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProtectionTools.Core.Tests", "ProtectionTools.Core.Tests\ProtectionTools.Core.Tests.csproj", "{9669C0B0-932C-424F-A79C-04890F857F0C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLayer", "DataAccessLayer\DataAccessLayer.csproj", "{47C3E923-91DF-47A0-936D-BF99D23D9C36}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "ProtectionTools.Core.FSharp", "ProtectionTools.Core.FSharp\ProtectionTools.Core.FSharp.fsproj", "{451557E7-403B-4F29-BE97-273ECA851017}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -42,6 +44,10 @@ Global
 		{47C3E923-91DF-47A0-936D-BF99D23D9C36}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{47C3E923-91DF-47A0-936D-BF99D23D9C36}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{47C3E923-91DF-47A0-936D-BF99D23D9C36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{451557E7-403B-4F29-BE97-273ECA851017}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{451557E7-403B-4F29-BE97-273ECA851017}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{451557E7-403B-4F29-BE97-273ECA851017}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{451557E7-403B-4F29-BE97-273ECA851017}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
