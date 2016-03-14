@@ -1,13 +1,6 @@
 ﻿// Created 09.12.2015
 // Modified by  11.12.2015 at 14:23
 
-#region References
-
-using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-#endregion
-
 namespace ProtectionTools.Core.Tests.Groups {
     #region References
 
@@ -15,6 +8,7 @@ namespace ProtectionTools.Core.Tests.Groups {
     using Core.Elements.Connections.Factory;
     using Core.Elements.ElectroReceivers;
     using Lines.Factories;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
     using Moq;
 
     #endregion

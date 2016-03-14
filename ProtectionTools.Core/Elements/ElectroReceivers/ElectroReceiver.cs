@@ -9,7 +9,7 @@ namespace ProtectionTools.Core.Elements.ElectroReceivers {
 
     #endregion
 
-    internal class ElectroReceiver : AbstractChainElement, IElectroReceiver {
+    public class ElectroReceiver : AbstractChainElement, IElectroReceiver {
         public ElectroReceiver(IConnectionFactory connectionFactory, ConnectionType connectionType, double activePower,
             int count, double usingCoefficient,
             double cos) : base(connectionFactory) {
@@ -18,19 +18,21 @@ namespace ProtectionTools.Core.Elements.ElectroReceivers {
             Count = count;
             UsingCoefficient = usingCoefficient;
             Cos = cos;
+            Id = Guid.NewGuid();
             TotalNominalPower = Count*ActivePower;
             ReactiveLoad = TotalNominalPower*UsingCoefficient*Math.Tan(Math.Acos(Cos));
             MaxOutputsCount = Count;
         }
 
         protected override int MaxOutputsCount { get; }
+        public Guid Id { get; }
 
-        public ConnectionType ConnectionType { get; }
-        public double ActivePower { get; }
-        public int Count { get; }
-        public double UsingCoefficient { get; }
-        public double Cos { get; }
-        public double TotalNominalPower { get; }
-        public double ReactiveLoad { get; }
+        public ConnectionType ConnectionType { get; set; }
+        public double ActivePower { get; set; }
+        public int Count { get; set; }
+        public double UsingCoefficient { get; set; }
+        public double Cos { get; set; }
+        public double TotalNominalPower { get; set; }
+        public double ReactiveLoad { get; set; }
     }
 }

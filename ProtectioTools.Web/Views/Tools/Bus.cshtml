@@ -1,0 +1,51 @@
+﻿@model ProtectionTools.Web.Models.Tools.BusViewModel
+
+@{
+    ViewBag.Title = "Расчет тока потребления на шине";
+}
+
+@using (Html.BeginForm("Bus", "Tools", FormMethod.Post)) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.PowerCoef)
+        <div>
+            @Html.EditorFor(m => m.PowerCoef, new {@class = "form-control"})
+            @Html.ValidationMessageFor(m => m.PowerCoef, "", new {@class = "text-danger"})
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.NominalVoltage)
+        <div>
+            @Html.EditorFor(m => m.NominalVoltage, new {@class = "form-control"})
+            @Html.ValidationMessageFor(m => m.NominalVoltage, "", new {@class = "text-danger"})
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Elements)
+        @Html.Partial("_ConnectionList", Model.Elements)
+        <input type="button" value="Добавить" id="addElement" class="btn btn-default"/>
+    </div>
+
+    <div class="form-group">
+        <div>
+            <input type="submit" value="Рассчитать" class="btn btn-default"/>
+        </div>
+    </div>
+    if (Model.HasResult) {
+         <div class="form-group">
+             @Html.LabelFor(m => m.Amperage)
+            <div>
+                @Html.DisplayFor(m => m.Amperage, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Amperage, "", new { @class = "text-danger" })
+            </div>
+         </div>
+     }
+
+}
+<script src=@Url.Content("~/Scripts/jquery-1.10.2.min.js")></script>
+<script src=@Url.Content("~/Scripts/jquery.unobtrusive-ajax.min.js")></script>
+<script src="~/Scripts/custom/elementCreator.js"></script>

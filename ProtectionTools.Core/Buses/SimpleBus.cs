@@ -14,15 +14,19 @@ namespace ProtectionTools.Core.Buses {
 
     #endregion
 
-    internal class SimpleBus : AbstractChainElement, IElementGroup {
-        private readonly double _nominalVoltage;
-        private readonly double _powerCoef;
+    public class SimpleBus : AbstractChainElement, IElementGroup {
+        public double NominalVoltage { get; set; }
+        public double PowerCoef { get; set; }
 
         public SimpleBus(IConnectionFactory connectionFactory, int maxOutputCount, double powerCoef,
             double nominalVoltage)
             : base(connectionFactory) {
-            _powerCoef = powerCoef;
-            _nominalVoltage = nominalVoltage;
+            PowerCoef = powerCoef;
+            NominalVoltage = nominalVoltage;
+            MaxOutputsCount = maxOutputCount;
+        }
+
+        public SimpleBus(IConnectionFactory connectionFactory, int maxOutputCount) : base(connectionFactory) {
             MaxOutputsCount = maxOutputCount;
         }
 
@@ -37,7 +41,7 @@ namespace ProtectionTools.Core.Buses {
         }
 
         public double CountedActivePower {
-            get { return _powerCoef*Elements.Sum(element => element.UsingCoefficient*element.TotalNominalPower); }
+            get { return PowerCoef*Elements.Sum(element => element.UsingCoefficient*element.TotalNominalPower); }
         }
 
         public double CountedReactivePower {
@@ -45,7 +49,7 @@ namespace ProtectionTools.Core.Buses {
         }
 
         public double Amperage {
-            get { return TotalCountedPower/(Math.Sqrt(3)*_nominalVoltage); }
+            get { return TotalCountedPower/(Math.Sqrt(3)*NominalVoltage); }
         }
 
         public double TotalCountedPower {

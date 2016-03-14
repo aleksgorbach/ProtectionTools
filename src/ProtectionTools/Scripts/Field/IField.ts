@@ -1,3 +1,0 @@
-﻿interface IField {
-    draw() : void;
-}

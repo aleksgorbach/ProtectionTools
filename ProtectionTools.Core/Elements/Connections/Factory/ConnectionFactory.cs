@@ -9,7 +9,7 @@ namespace ProtectionTools.Core.Elements.Connections.Factory {
 
     #endregion
 
-    internal class ConnectionFactory : IConnectionFactory {
+    public class ConnectionFactory : IConnectionFactory {
         private readonly ILineFactory _lineFactory;
 
         public ConnectionFactory(ILineFactory lineFactory) {

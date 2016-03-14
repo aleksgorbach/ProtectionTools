@@ -8,7 +8,7 @@ namespace ProtectionTools.Core.Lines.Factories {
 
     #endregion
 
-    internal class LineFactory : ILineFactory {
+    public class LineFactory : ILineFactory {
         public ILine Create() {
             return new SimpleLine();
         }

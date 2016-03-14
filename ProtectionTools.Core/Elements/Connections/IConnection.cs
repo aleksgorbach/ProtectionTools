@@ -4,6 +4,7 @@
 namespace ProtectionTools.Core.Elements.Connections {
     #region References
 
+    using System;
     using Lines;
 
     #endregion
