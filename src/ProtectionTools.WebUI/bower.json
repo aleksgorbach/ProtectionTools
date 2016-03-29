@@ -1,0 +1,12 @@
+{
+	"name": "ASP.NET",
+	"private": true,
+    "dependencies": {
+        "jquery": "~2.2.2",
+        "bootstrap": "~3.3.6"
+    },
+    "devDependencies": {
+        "gulp": "~3.9.1",
+        "less": "~2.6.1"
+    }
+}
