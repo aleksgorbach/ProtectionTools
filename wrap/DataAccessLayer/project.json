@@ -1,0 +1,15 @@
+{
+  "version": "1.0.0-*",
+  "frameworks": {
+    "net451": {
+      "wrappedProject": "../../DataAccessLayer/DataAccessLayer.csproj",
+      "bin": {
+        "assembly": "../../DataAccessLayer/obj/{configuration}/DataAccessLayer.dll",
+        "pdb": "../../DataAccessLayer/obj/{configuration}/DataAccessLayer.pdb"
+      },
+      "dependencies": {
+        "EntityFramework": "6.1.2"
+      }
+    }
+  }
+}

@@ -1,1 +1,50 @@
-﻿<form asp-action="Index" asp-controller="App"></form>
+﻿@using System.Threading.Tasks
+@using ProtectionTools.WebUI.ViewModels
+@model BusViewModel
+
+@{
+    ViewBag.Title = "Расчет тока потребления на шине";
+}
+
+<form asp-controller="App" asp-action="Index" method="post">
+    <div asp-validation-summary="ValidationSummary.ModelOnly" class="text-danger"></div>
+    <div class="form-group">
+        <label asp-for="PowerCoef"></label>
+        <div>
+            <input asp-for="PowerCoef" class="form-control"/>
+            <span asp-validation-for="PowerCoef" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="NominalVoltage"></label>
+        <div>
+            <input asp-for="NominalVoltage" class="form-control" />
+            <span asp-validation-for="NominalVoltage" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Elements"></label>
+        <div>
+            <input asp-for="Elements" class="form-control" />
+            <span asp-validation-for="Elements" class="text-danger"></span>
+        </div>
+        <input type="button" value="Добавить" id="addElement" class="btn btn-default"/>
+    </div>
+
+    <div class="form-group">
+        <div>
+            <input type="submit" value="Рассчитать" class="btn btn-default"/>
+        </div>
+    </div>
+    @if (true) {
+        <div class="form-group">
+            <label asp-for="Amperage"></label>
+            <div>
+                <input asp-for="Amperage" class="form-control" />
+                <span asp-validation-for="Amperage" class="text-danger"></span>
+            </div>
+        </div>
+    }
+</form>

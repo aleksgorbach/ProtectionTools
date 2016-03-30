@@ -6,6 +6,17 @@
         "assembly": "../../ProtectionTools.Core/bin/Debug/ProtectionTools.Core.dll",
         "pdb": "../../ProtectionTools.Core/bin/Debug/ProtectionTools.Core.pdb"
       }
+    },
+    "net451": {
+      "wrappedProject": "../../ProtectionTools.Core/ProtectionTools.Core.csproj",
+      "bin": {
+        "assembly": "../../ProtectionTools.Core/obj/{configuration}/ProtectionTools.Core.dll",
+        "pdb": "../../ProtectionTools.Core/obj/{configuration}/ProtectionTools.Core.pdb"
+      },
+      "dependencies": {
+        "CommonServiceLocator": "1.3",
+        "DataAccessLayer": "1.0.0-*"
+      }
     }
   }
 }
