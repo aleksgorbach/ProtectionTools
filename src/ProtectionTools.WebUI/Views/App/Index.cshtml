@@ -27,10 +27,18 @@
     <div class="form-group">
         <label asp-for="Elements"></label>
         <div>
-            <input asp-for="Elements" class="form-control" />
             <span asp-validation-for="Elements" class="text-danger"></span>
         </div>
         <input type="button" value="Добавить" id="addElement" class="btn btn-default"/>
+        <div>
+            @foreach (var elem in Model.Elements) {
+                <label asp-for="@elem.ActivePower"></label>
+                <div>
+                    <input asp-for="@elem.ActivePower" class="form-control" />
+                    <span asp-validation-for="@elem.ActivePower" class="text-danger"></span>
+                </div>
+            }
+        </div>
     </div>
 
     <div class="form-group">
@@ -42,7 +50,7 @@
         <div class="form-group">
             <label asp-for="Amperage"></label>
             <div>
-                <input asp-for="Amperage" class="form-control" />
+                <div >@Model.Amperage</div>
                 <span asp-validation-for="Amperage" class="text-danger"></span>
             </div>
         </div>
