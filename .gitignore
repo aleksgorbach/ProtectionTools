@@ -212,4 +212,6 @@ _Pvt_Extensions/
 ModelManifest.xml
 
 # JS libs
-src/ProtectionTools.WebUI/wwwroot/lib/
+src/ProtectionTools.WebUI/lib/
+src/ProtectionTools.WebUI/wwwroot/js/
+src/ProtectionTools.WebUI/wwwroot/css/

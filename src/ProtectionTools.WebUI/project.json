@@ -33,5 +33,6 @@
     "publishExclude": [
         "**.user",
         "**.vspscc"
-    ]
+    ],
+    "userSecretsId": "aspnet5-ProtectionTools.WebUI-20160401112336"
 }
