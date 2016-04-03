@@ -11,9 +11,7 @@ gulp.task("js:concat", function() {
         "lib/jquery/dist/jquery.js",
         "lib/bootstrap/dist/js/bootstrap.js",
         "lib/angular/angular.js",
-        "Scripts/electricityApp.js",
-        "Scripts/appController.js",
-        "Scripts/app.js"
+        "Scripts/*.js",
     ])
         .pipe(concat("app.js"))
         .pipe(gulp.dest("wwwroot/js/"));
