@@ -17,7 +17,10 @@
             app
                 .UseStaticFiles()
                 .UseDeveloperExceptionPage()
-                .UseMvc(config => { config.MapRoute("default", "{controller}/{action}"); });
+                .UseMvc(config => {
+                    config.MapRoute("default", "{controller}/{action}", new {controller = "App", action = "index"}
+                        );
+                });
         }
 
         // Entry point for the application.

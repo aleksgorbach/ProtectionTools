@@ -1,4 +1,4 @@
-﻿/// <binding BeforeBuild='css:uglify, js:concat' AfterBuild='js:concat' />
+/// <binding BeforeBuild='css:uglify, js:concat' />
 var gulp = require('gulp'),
     concat = require('gulp-concat'),
     uglify = require("gulp-cssmin"),
@@ -9,7 +9,10 @@ var gulp = require('gulp'),
 gulp.task("js:concat", function() {
     return gulp.src([
         "lib/jquery/dist/jquery.js",
-        "lib/bootstrap/dist/js/bootstrrap.js",
+        "lib/bootstrap/dist/js/bootstrap.js",
+        "lib/angular/angular.js",
+        "Scripts/electricityApp.js",
+        "Scripts/appController.js",
         "Scripts/app.js"
     ])
         .pipe(concat("app.js"))

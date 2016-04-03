@@ -1,4 +1,5 @@
 ﻿namespace ProtectionTools.WebUI.Controllers {
+    using System.Collections.Generic;
     using System.Linq;
     using AutoMapper;
     using Core.Elements.ElectroReceivers;
@@ -28,6 +29,11 @@
             model.Amperage = _busService.GetCurrent(model.PowerCoef, model.NominalVoltage,
                 model.Elements.Select(elem => _mapper.Map<ElectroReceiver>(elem)));
             return View(model);
+        }
+
+        public IActionResult Add(List<ElementViewModel> model) {
+            model.Add(new ElementViewModel());
+            return Json(model);
         }
     }
 }
