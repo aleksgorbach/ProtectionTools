@@ -11,9 +11,11 @@ gulp.task("js:concat", function() {
         "lib/jquery/dist/jquery.js",
         "lib/bootstrap/dist/js/bootstrap.js",
         "lib/angular/angular.js",
-        "Scripts/*.js",
+        "Scripts/app.js",
+        "Scripts/services/electricityService.js",
+        "Scripts/controllers/appController.js"
     ])
-        .pipe(concat("app.js"))
+        //.pipe(concat("app.js"))
         .pipe(gulp.dest("wwwroot/js/"));
 });
 

@@ -17,21 +17,21 @@
         }
 
         public IActionResult Index() {
-            return View(new BusViewModel());
+            return View();
         }
 
         [HttpPost]
-        public IActionResult Index(BusViewModel model) {
+        public IActionResult Calc([FromBody] BusViewModel model) {
             if (!ModelState.IsValid) {
                 ModelState.AddModelError("", "Please enter correct data");
                 return View(model);
             }
             model.Amperage = _busService.GetCurrent(model.PowerCoef, model.NominalVoltage,
                 model.Elements.Select(elem => _mapper.Map<ElectroReceiver>(elem)));
-            return View(model);
+            return Json(model);
         }
 
-        public IActionResult Add(List<ElementViewModel> model) {
+        public IActionResult Add([FromBody] List<ElementViewModel> model) {
             model.Add(new ElementViewModel());
             return Json(model);
         }

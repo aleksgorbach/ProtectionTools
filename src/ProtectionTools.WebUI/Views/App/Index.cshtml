@@ -4,58 +4,76 @@
     ViewBag.Title = "Расчет тока потребления на шине";
 }
 
-<form asp-controller="App" asp-action="Index" method="post">
-    <div asp-validation-summary="ValidationSummary.ModelOnly" class="text-danger"></div>
-    <div class="form-group">
-        <label asp-for="PowerCoef"></label>
-        <div>
-            <input asp-for="PowerCoef" class="form-control"/>
-            <span asp-validation-for="PowerCoef" class="text-danger"></span>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label asp-for="NominalVoltage"></label>
-        <div>
-            <input asp-for="NominalVoltage" class="form-control"/>
-            <span asp-validation-for="NominalVoltage" class="text-danger"></span>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label asp-for="Elements"></label>
-        <div>
-            <span asp-validation-for="Elements" class="text-danger"></span>
-        </div>
-
-        <div>
-            @foreach (var elem in Model.Elements) {
-                <label asp-for="@elem.ActivePower"></label>
-                <div>
-                    <input asp-for="@elem.ActivePower" class="form-control"/>
-                    <span asp-validation-for="@elem.ActivePower" class="text-danger"></span>
-                </div>
-            }
-            <input type="button" value="Добавить" id="addElement" class="btn btn-default" ng-click="addElement()"/>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <div>
-            <input type="submit" value="Рассчитать" class="btn btn-default"/>
-        </div>
-    </div>
-    @if (true) {
+<div ng-controller="AppController">
+    <form asp-controller="App" asp-action="Index" method="post" ng-submit="calc()">
+        <div asp-validation-summary="ValidationSummary.ModelOnly" class="text-danger"></div>
         <div class="form-group">
-            <label asp-for="Amperage"></label>
+            <label asp-for="PowerCoef"></label>
             <div>
-                <div >@Model.Amperage</div>
-                <span asp-validation-for="Amperage" class="text-danger"></span>
+                <input ng-model="model.PowerCoef" class="text-danger"/>
             </div>
         </div>
-    }
-</form>
+
+        <div class="form-group">
+            <label asp-for="NominalVoltage"></label>
+            <div>
+                <input ng-model="model.NominalVoltage" class="text-danger"/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Elements"></label>
+            <div>
+                <span asp-validation-for="Elements" class="text-danger"></span>
+            </div>
+
+            <table>
+                <thead>
+                <tr>
+                    <th>Active power</th>
+                    <th>Count</th>
+                    <th>Using coefficient</th>
+                    <th>Cos</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="element in model.Elements">
+                    <td>
+                        <input type="text" ng-model="element.ActivePower"/>
+                    </td>
+                    <td>
+                        <input type="text" ng-model="element.Count"/>
+                    </td>
+                    <td>
+                        <input type="text" ng-model="element.UsingCoefficient"/>
+                    </td>
+                    <td>
+                        <input type="text" ng-model="element.Cos"/>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <input type="button" value="Добавить" id="addElement" class="btn btn-default" ng-click="addElement()"/>
+        </div>
+
+        <div class="form-group">
+            <div>
+                <input type="submit" value="Рассчитать" class="btn btn-default"/>
+            </div>
+        </div>
+
+    </form>
+
+    <div class="form-group" ng-show="model.amperage > 0">
+        <label asp-for="Amperage"></label>
+        <div>
+            <div>{{ Model.Amperage}}</div>
+        </div>
+    </div>
+</div>
 
 @section Scripts {
     <script src="~/js/app.js"></script>
+    <script src="~/js/electricityService.js"></script>
+    <script src="~/js/appController.js"></script>
 }

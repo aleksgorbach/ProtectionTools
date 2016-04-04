@@ -3,8 +3,6 @@
     using System.ComponentModel.DataAnnotations;
 
     public class BusViewModel {
-        public bool HasResult { get; set; }
-
         [Display(Name = "Коэффициент мощности")]
         public double PowerCoef { get; set; }
 
