@@ -10,12 +10,10 @@
 
         var addElement = function (model) {
             model.Elements.push({
-                activePower: 0,
-                count: 1,
-                useCoef: 1,
-                cos: 1,
-                nomPower: 1,
-                reactiveLoad: 0
+                ActivePower: 0,
+                Count: 1,
+                UsingCoefficient: 1,
+                Cos: 1
             });
             return model;
         }

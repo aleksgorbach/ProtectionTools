@@ -1,9 +1,11 @@
 ﻿namespace ProtectionTools.WebUI.ServicesConfiguration {
     using AutoMapper;
     using Core.Elements.Connections.Factory;
+    using Core.Elements.ElectroReceivers;
     using Core.Lines.Factories;
     using Microsoft.Extensions.DependencyInjection;
     using Services;
+    using ViewModels;
 
     public static class AppServicesConfiguration {
         public static void Configure(IServiceCollection services) {
@@ -16,6 +18,7 @@
         }
 
         private static void CreateMappings(IMapperConfiguration config) {
+            config.CreateMap<ElementViewModel, ElectroReceiver>();
         }
     }
 }

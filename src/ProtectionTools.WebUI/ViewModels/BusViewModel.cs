@@ -14,11 +14,5 @@
 
         [Display(Name = "Элементы")]
         public List<ElementViewModel> Elements { get; set; }
-
-        public BusViewModel() {
-            Elements = new List<ElementViewModel>();
-            PowerCoef = 1;
-            NominalVoltage = 220;
-        }
     }
 }

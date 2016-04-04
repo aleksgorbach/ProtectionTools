@@ -1,16 +1,5 @@
-﻿// Created 08.12.2015
-// Modified by  09.12.2015 at 15:18
-
-namespace ProtectionTools.Core.Elements.ElectroReceivers {
-    using System;
-
-    public enum ConnectionType {
-        ThreePhase
-    }
-
+﻿namespace ProtectionTools.Core.Elements.ElectroReceivers {
     public interface IElectroReceiver {
-        ConnectionType ConnectionType { get; }
-
         /// <summary>
         /// Номинальная активная мощность
         /// </summary>
@@ -34,7 +23,5 @@ namespace ProtectionTools.Core.Elements.ElectroReceivers {
         /// Расчетная реактивная мощность
         /// </summary>
         double ReactiveLoad { get; }
-
-        Guid Id { get; }
     }
 }

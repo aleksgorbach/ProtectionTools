@@ -1,7 +1,7 @@
 ﻿namespace ProtectionTools.WebUI.Controllers {
     using System.Collections.Generic;
     using System.Linq;
-    using AutoMapper;
+    using Core.Elements.Connections.Factory;
     using Core.Elements.ElectroReceivers;
     using Microsoft.AspNet.Mvc;
     using Services;
@@ -9,11 +9,11 @@
 
     public class AppController : Controller {
         private readonly IBusService _busService;
-        private readonly IMapper _mapper;
+        private readonly IConnectionFactory _connectionFactory;
 
-        public AppController(IBusService busService, IMapper mapper) {
+        public AppController(IBusService busService, IConnectionFactory connectionFactory) {
             _busService = busService;
-            _mapper = mapper;
+            _connectionFactory = connectionFactory;
         }
 
         public IActionResult Index() {
@@ -27,7 +27,14 @@
                 return View(model);
             }
             model.Amperage = _busService.GetCurrent(model.PowerCoef, model.NominalVoltage,
-                model.Elements.Select(elem => _mapper.Map<ElectroReceiver>(elem)));
+                model.Elements.Select(
+                    elem =>
+                        new ElectroReceiver(
+                            _connectionFactory,
+                            elem.ActivePower,
+                            elem.Count,
+                            elem.UsingCoefficient,
+                            elem.Cos)));
             return Json(model);
         }
 

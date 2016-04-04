@@ -1,7 +1,4 @@
-﻿// Created 09.12.2015
-// Modified by  11.12.2015 at 14:23
-
-namespace ProtectionTools.Core.Tests.Groups {
+﻿namespace ProtectionTools.Core.Tests.Groups {
     #region References
 
     using Buses;
@@ -20,10 +17,10 @@ namespace ProtectionTools.Core.Tests.Groups {
             // Arrange
             var connectionFactory = new ConnectionFactory(Mock.Of<ILineFactory>());
             var bus = new SimpleBus(connectionFactory, 10, 1.18904, 0.38);
-            var elem1 = new ElectroReceiver(connectionFactory, ConnectionType.ThreePhase, 9.3, 1, 0.6, 0.8);
-            var elem2 = new ElectroReceiver(connectionFactory, ConnectionType.ThreePhase, 12, 1, 0.6, 0.8);
-            var elem3 = new ElectroReceiver(connectionFactory, ConnectionType.ThreePhase, 27.4, 1, 0.6, 0.8);
-            var elem4 = new ElectroReceiver(connectionFactory, ConnectionType.ThreePhase, 13, 1, 0.6, 0.8);
+            var elem1 = new ElectroReceiver(connectionFactory, 9.3, 1, 0.6, 0.8);
+            var elem2 = new ElectroReceiver(connectionFactory, 12, 1, 0.6, 0.8);
+            var elem3 = new ElectroReceiver(connectionFactory, 27.4, 1, 0.6, 0.8);
+            var elem4 = new ElectroReceiver(connectionFactory, 13, 1, 0.6, 0.8);
             bus.ConnectOutput(elem1);
             bus.ConnectOutput(elem2);
             bus.ConnectOutput(elem3);

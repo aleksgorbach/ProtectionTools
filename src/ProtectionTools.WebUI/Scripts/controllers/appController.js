@@ -15,7 +15,7 @@
         }
 
         $scope.addElement = function() {
-            electricity.addElement($scope.model)();
+            $scope.model = electricity.addElement($scope.model);
         }
     }
     app.controller("AppController", appController);
