@@ -20,7 +20,6 @@
             return View();
         }
 
-        [HttpPost]
         public IActionResult Calc([FromBody] BusViewModel model) {
             if (!ModelState.IsValid) {
                 ModelState.AddModelError("", "Please enter correct data");
