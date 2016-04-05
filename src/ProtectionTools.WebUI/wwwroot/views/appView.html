@@ -1,29 +1,29 @@
 <form>
-    <div asp-validation-summary="ValidationSummary.ModelOnly" class="form-control"></div>
     <div class="form-group">
-        <label for="powerCoef">Коэффициент мощности</label>
+        <label for="powerCoef" class="control-label">Коэффициент мощности</label>
         <div>
             <input id="powerCoef" ng-model="model.PowerCoef" class="form-control" />
         </div>
     </div>
 
     <div class="form-group">
-        <label for="voltage">Номинальное напряжение</label>
+        <label for="voltage" class="control-label">Номинальное напряжение</label>
         <div>
             <input id="voltage" ng-model="model.NominalVoltage" class="form-control" />
         </div>
     </div>
 
     <div class="form-group">
-        <label for="elements">Подключенные элементы</label>
+        <label for="elements" class="control-label">Подключенные элементы</label>
         <input type="button" value="Добавить" id="addElement" class="btn btn-default form-control" ng-click="addElement()" />
         <table id="elements" ng-show="model.Elements.length">
             <thead>
                 <tr>
-                    <th>Active power</th>
-                    <th>Count</th>
-                    <th>Using coefficient</th>
-                    <th>Cos</th>
+                    <th>Активная мощность</th>
+                    <th>Количество</th>
+                    <th>Коэффициент использования</th>
+                    <th>Cos(a)</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -40,6 +40,7 @@
                     <td>
                         <input type="text" ng-model="element.Cos" class="form-control"/>
                     </td>
+                    <td><button ng-click="removeElement(element)">Удалить</button></td>
                 </tr>
             </tbody>
         </table>
@@ -53,9 +54,9 @@
     </div>
 
     <div class="form-group" ng-show="model.Amperage">
-        <label for="amperage">Расчётный ток</label>
+        <label for="amperage" class="control-label">Расчётный ток</label>
         <div>
-            <div id="amperage">{{ model.Amperage}}</div>
+            <div id="amperage">{{ model.Amperage | number:2}}</div>
         </div>
     </div>
 </form>

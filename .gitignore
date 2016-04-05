@@ -215,3 +215,4 @@ ModelManifest.xml
 src/ProtectionTools.WebUI/lib/
 src/ProtectionTools.WebUI/wwwroot/js/
 src/ProtectionTools.WebUI/wwwroot/css/
+src/ProtectionTools.WebUI/.vscode/tasks.json
