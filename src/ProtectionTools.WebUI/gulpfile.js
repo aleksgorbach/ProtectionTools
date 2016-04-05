@@ -11,6 +11,7 @@ gulp.task("js:concat", function() {
         "lib/jquery/dist/jquery.js",
         "lib/bootstrap/dist/js/bootstrap.js",
         "lib/angular/angular.js",
+        "lib/angular-route/angular-route.js",
         "Scripts/app.js",
         "Scripts/services/electricityService.js",
         "Scripts/controllers/appController.js"
