@@ -15,6 +15,10 @@
             $scope.addElement = function() {
                 $scope.model = electricity.addElement($scope.model);
             }
+
+            $scope.canBeProcessed = function() {
+                return !amperageForm.$invalid && $scope.model.Elements.length > 0;
+            }
         }
     );
 }())

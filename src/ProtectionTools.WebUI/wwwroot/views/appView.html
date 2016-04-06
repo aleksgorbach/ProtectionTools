@@ -1,15 +1,23 @@
-<form>
+<form name="amperageForm">
     <div class="form-group">
         <label for="powerCoef" class="control-label">Коэффициент мощности</label>
         <div>
-            <input id="powerCoef" ng-model="model.PowerCoef" class="form-control" />
+            <input type="number" id="powerCoef" step="0.01" min="0" ng-model="model.PowerCoef" class="form-control" required name="powerCoef"/>
+            <div ng-messages="amperageForm.powerCoef.$error">
+                <div class="error-message" ng-message="required">Укажите коэффициент мощности</div>
+                <div class="error-message" ng-message="min">Значение должно быть больше 0</div>
+            </div>
         </div>
     </div>
 
     <div class="form-group">
         <label for="voltage" class="control-label">Номинальное напряжение</label>
         <div>
-            <input id="voltage" ng-model="model.NominalVoltage" class="form-control" />
+            <input type="number" min="0" step="0.01" id="voltage" ng-model="model.NominalVoltage" class="form-control" required name="voltage"/>
+            <div ng-messages="amperageForm.powerCoef.$error">
+                <div class="error-message" ng-message="required">Укажите напряжение</div>
+                <div class="error-message" ng-message="min">Значение должно быть больше 0</div>
+            </div>
         </div>
     </div>
 
@@ -21,7 +29,7 @@
                 <tr>
                     <th>Активная мощность</th>
                     <th>Количество</th>
-                    <th>Коэффициент использования</th>
+                    <th>Ки</th>
                     <th>Cos(a)</th>
                     <th></th>
                 </tr>
@@ -29,16 +37,16 @@
             <tbody>
                 <tr ng-repeat="element in model.Elements">
                     <td>
-                        <input type="text" ng-model="element.ActivePower" class="form-control" />
+                        <input type="number" min="0" ng-model="element.ActivePower" class="form-control" required/>
                     </td>
                     <td>
-                        <input type="text" ng-model="element.Count" class="form-control"/>
+                        <input type="number" min="1" ng-model="element.Count" class="form-control" required/>
                     </td>
                     <td>
-                        <input type="text" ng-model="element.UsingCoefficient" class="form-control"/>
+                        <input type="number" min="0" max="1" step="0.1" ng-model="element.UsingCoefficient" class="form-control" required/>
                     </td>
                     <td>
-                        <input type="text" ng-model="element.Cos" class="form-control"/>
+                        <input type="number" min="0" max="1" step="0.05" ng-model="element.Cos" class="form-control" required/>
                     </td>
                     <td><button ng-click="removeElement(element)">Удалить</button></td>
                 </tr>
@@ -49,7 +57,7 @@
 
     <div class="form-group">
         <div>
-            <input type="submit" value="Рассчитать" class="btn btn-default" ng-click="calc()" />
+            <input type="submit" value="Рассчитать" class="btn btn-default" ng-click="calc()" ng-disabled="!canBeProcessed()" />
         </div>
     </div>
 

@@ -8,6 +8,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8BBCF67E-4931-4831-9AA9-4AAEA9985CC7}"
 	ProjectSection(SolutionItems) = preProject
 		global.json = global.json
+		WE-Palette.css = WE-Palette.css
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProtectionTools.Core", "ProtectionTools.Core\ProtectionTools.Core.csproj", "{A1949F65-F93B-4E92-A751-B95E94FCBE41}"

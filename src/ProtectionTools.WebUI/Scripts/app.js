@@ -1,5 +1,5 @@
 (function () {
-    angular.module("electricityApp", ["ngRoute"])
+    angular.module("electricityApp", ["ngRoute", "ngMessages"])
         .config([
             "$routeProvider", function($routeProvider) {
                 $routeProvider

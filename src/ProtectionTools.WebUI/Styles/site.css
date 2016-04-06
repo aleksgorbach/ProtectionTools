@@ -1,7 +1,26 @@
 ﻿body {
-    background-color: #f8f9f9
+    background-color: #BBDEE4
 }
 
-header {
-    background-color: #b0ceff;
+.logo {
+    max-width:48px;
+}
+
+.navbar-brand {
+    padding-top: 8px;
+}
+
+.error-message {
+    color: #DF5B13
+}
+
+#amperage {
+    color: #12A67E;
+    font-size: large;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
 }
