@@ -1,0 +1,60 @@
+@font-face {
+  font-family: Ubuntu-R;
+  src: url("../../fonts/Ubuntu-R.ttf") format("truetype"); }
+
+@font-face {
+  font-family: Ubuntu-R; }
+
+body {
+  background-color: #fff;
+  font-family: Ubuntu-R; }
+
+.logo {
+  max-width: 48px; }
+
+.navbar-brand {
+  padding-top: 8px; }
+
+.error-message {
+  color: #DF5B13; }
+
+#amperage {
+  color: #12A67E;
+  font-size: large; }
+
+input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0; }
+
+#addElement:focus {
+  -webkit-box-shadow: none;
+  box-shadow: none; }
+
+#elements {
+  width: 100%; }
+
+#nav-wrapper {
+  border-bottom: solid 3px #3e3555; }
+
+.navbar-inverse {
+  background-color: transparent; }
+  .navbar-inverse .navbar-nav > .active > a {
+    background-color: #3e3555;
+    color: #E3EDF5; }
+    .navbar-inverse .navbar-nav > .active > a:hover {
+      background-color: #53377F; }
+  .navbar-inverse .navbar-nav > li > a {
+    color: #53377F; }
+    .navbar-inverse .navbar-nav > li > a:hover {
+      background-color: #53377F;
+      color: #d3dfe9; }
+
+.navbar {
+  -webkit-box-shadow: none;
+  box-shadow: none; }
+
+.control-label {
+  font-size: medium; }
+
+#calcButton {
+  font-size: large; }

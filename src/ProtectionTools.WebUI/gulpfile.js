@@ -1,9 +1,10 @@
-/// <binding BeforeBuild='css:uglify, js:concat' />
+/// <binding BeforeBuild='css' />
 var gulp = require('gulp'),
     concat = require('gulp-concat'),
     uglify = require("gulp-cssmin"),
     rename = require("gulp-rename"),
-    concatCss = require("gulp-concat-css");
+    concatCss = require("gulp-concat-css"),
+    sass = require("gulp-sass");
     
 
 gulp.task("js:concat", function() {
@@ -21,14 +22,26 @@ gulp.task("js:concat", function() {
         .pipe(gulp.dest("wwwroot/js/"));
 });
 
-gulp.task("css:uglify", function() {
+gulp.task("css:compile", function() {
+    return gulp.src([
+            "Styles/site.scss"
+    ])
+        .pipe(sass())
+        .pipe(gulp.dest("Styles/dist/"));
+})
+
+gulp.task("css:concat", function() {
     return gulp.src([
             "lib/bootstrap/dist/css/bootstrap.css",
             "lib/bootswatch/paper/bootstrap.css",
-            "Styles/site.css"
+            "Styles/dist/site.css"
     ])
         .pipe(concatCss("styles.css"))
         //.pipe(uglify())
         //.pipe(rename({suffix: ".min"}))
         .pipe(gulp.dest("wwwroot/css/"));
 });
+
+gulp.task("css", function() {
+    gulp.run("css:compile", "css:concat");
+})
