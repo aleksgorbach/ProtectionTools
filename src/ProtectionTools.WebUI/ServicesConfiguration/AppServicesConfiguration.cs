@@ -1,24 +1,17 @@
-﻿namespace ProtectionTools.WebUI.ServicesConfiguration {
-    using AutoMapper;
-    using Core.Elements.Connections.Factory;
-    using Core.Elements.ElectroReceivers;
-    using Core.Lines.Factories;
+﻿namespace ProtectionTools.WebAPI.ServicesConfiguration {
+    using Data.Repository;
+    using Data.Repository.EF;
     using Microsoft.Extensions.DependencyInjection;
-    using Services;
-    using ViewModels;
+    using Models.Engines;
+    using Services.Buses;
+    using Services.Engines;
 
     public static class AppServicesConfiguration {
         public static void Configure(IServiceCollection services) {
             services.AddScoped<IBusService, BusService>();
-            services.AddScoped<IConnectionFactory, ConnectionFactory>();
-            services.AddScoped<ILineFactory, LineFactory>();
+            services.AddScoped<IEngineService, EngineService>();
 
-            var mappingConfig = new MapperConfiguration(CreateMappings);
-            services.AddInstance(mappingConfig.CreateMapper());
-        }
-
-        private static void CreateMappings(IMapperConfiguration config) {
-            config.CreateMap<ElementViewModel, ElectroReceiver>();
+            services.AddScoped<IRepository<Engine>, EnginesRepository>();
         }
     }
 }

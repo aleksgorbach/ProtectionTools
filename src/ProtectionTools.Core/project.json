@@ -1,0 +1,14 @@
+{
+  "version": "1.0.0-*",
+  "description": "ProtectionTools.Core Class Library",
+  "authors": [ "Администратор" ],
+  "tags": [ "" ],
+  "projectUrl": "",
+  "licenseUrl": "",
+    "frameworks": {
+        "net451": { }
+    },
+    "dependencies": {
+        "ProtectionTools.Models": "1.0.0-*"
+    }
+}
