@@ -1,27 +1,26 @@
 ﻿namespace ProtectionTools.Data {
-    using Microsoft.AspNet.Hosting;
     using Microsoft.Data.Entity;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.PlatformAbstractions;
     using Repository.EF;
 
-    public class Startup {
-        public IConfiguration Configuration { get; set; }
+    public class DataConfiguration {
+        private readonly IConfigurationRoot _configuration;
 
-        public Startup(IHostingEnvironment env, IApplicationEnvironment appEnv) {
+        public DataConfiguration(IApplicationEnvironment appEnv) {
             var confBuilder = new ConfigurationBuilder()
                 .SetBasePath(appEnv.ApplicationBasePath)
                 .AddJsonFile("appsettings.json")
                 .AddEnvironmentVariables();
-            Configuration = confBuilder.Build();
+            _configuration = confBuilder.Build();
         }
 
-        public void ConfigureServices(IServiceCollection services) {
+        public void Configure(IServiceCollection services) {
             services.AddEntityFramework()
                 .AddSqlServer()
                 .AddDbContext<DataContext>(options =>
-                    options.UseSqlServer(Configuration["Data:DefaultConnection:ConnectionString"]));
+                    options.UseSqlServer(_configuration["Data:DefaultConnection:ConnectionString"]));
         }
     }
 }

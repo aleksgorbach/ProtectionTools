@@ -20,11 +20,6 @@
     <DnxInvisibleContent Include="package.json" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\DataAccessLayer\ProtectionTools.DAL.csproj" />
-    <ProjectReference Include="..\..\ElectricModels\ProtectionTools.Models.csproj" />
-    <ProjectReference Include="..\..\ProtectionTools.Core\ProtectionTools.Core.csproj" />
-  </ItemGroup>
-  <ItemGroup>
     <DnxInvisibleFolder Include="lib\" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\DNX\Microsoft.DNX.targets" Condition="'$(VSToolsPath)' != ''" />

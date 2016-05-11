@@ -1,15 +1,19 @@
 ﻿namespace ProtectionTools.WebAPI {
+    using Data;
     using Microsoft.AspNet.Builder;
     using Microsoft.AspNet.Hosting;
     using Microsoft.Extensions.DependencyInjection;
+    using Microsoft.Extensions.PlatformAbstractions;
     using ServicesConfiguration;
 
     public class Startup {
+        private DataConfiguration _dataConfiguration;
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services) {
             services.AddMvc();
             AppServicesConfiguration.Configure(services);
+            _dataConfiguration.Configure(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -19,6 +23,10 @@
                 .UseStaticFiles()
                 .UseDeveloperExceptionPage()
                 .UseMvc();
+        }
+
+        public Startup(IApplicationEnvironment appEnv) {
+            _dataConfiguration = new DataConfiguration(appEnv);
         }
 
         // Entry point for the application.
