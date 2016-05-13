@@ -1,9 +1,10 @@
-﻿using ProtectionTools.Models.Engines;
-using System.Collections.Generic;
+﻿namespace ProtectionTools.WebAPI.Services.Engines {
+    using System.Collections.Generic;
+    using Models.Engines;
 
-namespace ProtectionTools.WebAPI.Services.Engines {
     public interface IEngineService {
         IEnumerable<Engine> GetAll();
-        void Add(Engine model);
+        Engine Add(Engine model);
+        Engine Delete(int id);
     }
 }

@@ -19,14 +19,20 @@
             return _context.Engines.AsQueryable();
         }
 
-        public void Add(Engine item) {
+        public Engine Add(Engine item) {
             _context.Engines.Add(item);
             _context.SaveChanges();
+            return item;
         }
 
-        public void Remove(Engine item) {
+        public Engine Remove(int id) {
+            var item = _context.Engines.SingleOrDefault(x => x.Id == id);
+            if (item == null) {
+                return null;
+            }
             _context.Engines.Remove(item);
             _context.SaveChanges();
+            return item;
         }
 
         protected virtual void Dispose(bool disposing) {

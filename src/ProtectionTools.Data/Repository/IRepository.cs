@@ -3,13 +3,15 @@
 
     using System;
     using System.Linq;
+    using Models;
+    using Models.Engines;
 
     #endregion
 
-    public interface IRepository<T> : IDisposable {
+    public interface IRepository<T> : IDisposable where T : class, IEntity {
         T Get(Predicate<T> condition);
         IQueryable<T> GetAll();
-        void Add(T item);
-        void Remove(T item);
+        Engine Add(T item);
+        Engine Remove(int id);
     }
 }

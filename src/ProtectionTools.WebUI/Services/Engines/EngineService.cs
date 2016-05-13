@@ -1,8 +1,8 @@
-﻿using ProtectionTools.Data.Repository;
-using ProtectionTools.Models.Engines;
-using System.Collections.Generic;
+﻿namespace ProtectionTools.WebAPI.Services.Engines {
+    using System.Collections.Generic;
+    using Data.Repository;
+    using Models.Engines;
 
-namespace ProtectionTools.WebAPI.Services.Engines {
     public class EngineService : IEngineService {
         private readonly IRepository<Engine> _engineRepository;
 
@@ -14,8 +14,12 @@ namespace ProtectionTools.WebAPI.Services.Engines {
             return _engineRepository.GetAll();
         }
 
-        public void Add(Engine model) {
-            _engineRepository.Add(model);
+        public Engine Add(Engine model) {
+            return _engineRepository.Add(model);
+        }
+
+        public Engine Delete(int id) {
+            return _engineRepository.Remove(id);
         }
     }
 }

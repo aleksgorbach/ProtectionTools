@@ -1,9 +1,9 @@
 ﻿namespace ProtectionTools.WebAPI.Controllers {
+    using System.Collections.Generic;
     using Microsoft.AspNet.Mvc;
     using Models.Engines;
     using Newtonsoft.Json;
     using Services.Engines;
-    using System.Collections.Generic;
 
     [Route("api/[controller]")]
     public class EnginesController : Controller {
@@ -19,10 +19,15 @@
         }
 
         [HttpPost]
-        public void Post([FromBody] dynamic value) {
+        public Engine Post([FromBody] dynamic value) {
             var json = value.ToString();
             var model = JsonConvert.DeserializeObject<Engine>(json);
-            _engineService.Add(model);
+            return _engineService.Add(model);
+        }
+
+        [HttpDelete("{id}")]
+        public Engine Delete(int id) {
+            return _engineService.Delete(id);
         }
     }
 }

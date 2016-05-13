@@ -2,7 +2,7 @@
     <div class="form-group">
         <label for="elements" class="control-label">Двигатели АИР</label>
 
-        <table id="elements" ng-show="engines.length">
+        <table class="elements">
             <thead>
                 <tr>
                     <th>Марка</th>
@@ -14,27 +14,15 @@
             <tbody>
                 <tr ng-repeat="engine in engines">
                     <td>
-                        {{engine.title}}
+                        {{engine.Title}}
                     </td>
                     <td>
-                        {{engine.power}}
+                        {{engine.Power}}
                     </td>
                     <td>
                         {{engine.IpIn}}
                     </td>
                     <td><button ng-click="remove(engine)">Удалить</button></td>
-                </tr>
-
-            </tbody>
-        </table>
-        <div class="form-group">
-            <input type="button" value="Добавить" id="addEngine" class="btn btn-default form-control" ng-click="addEngine()" />
-            <table>
-                <tr>
-                    <th>Марка</th>
-                    <th>Мощность</th>
-                    <th>Ip/In</th>
-                    <th></th>
                 </tr>
                 <tr>
                     <td>
@@ -46,9 +34,10 @@
                     <td>
                         <input type="number" ng-model="IpIn" class="form-control" />
                     </td>
-                    <td/>
+                    <td>&nbsp;</td>
                 </tr>
-            </table>
-        </div>
+            </tbody>
+        </table>
+        <input type="button" value="Добавить" id="addEngine" class="btn btn-default form-control" ng-click="addEngine()" />
     </div>
 </form>

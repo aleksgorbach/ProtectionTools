@@ -1,5 +1,5 @@
 ﻿namespace ProtectionTools.Models.Engines {
-    public class Engine {
+    public class Engine : IEntity {
         public int Id { get; set; }
         public string Title { get; set; }
         public double TurnsPerMin { get; set; }
