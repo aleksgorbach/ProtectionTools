@@ -1,7 +1,7 @@
 ﻿namespace ProtectionTools.WebAPI.Controllers {
     using Microsoft.AspNet.Mvc;
     using Models.Buses;
-    using Newtonsoft.Json;
+    using Models.FusingTools.Fuses;
     using Services.Buses;
 
     [Route("api/[controller]")]
@@ -13,11 +13,15 @@
         }
 
         [HttpPost]
-        public double Amperage([FromBody] dynamic json) {
-            string str = json.ToString();
-            var bus = JsonConvert.DeserializeObject<Bus>(str);
+        public double Amperage([FromBody] Bus bus) {
             var amperage = _busService.GetAmperage(bus);
             return amperage;
+        }
+
+        [HttpPost]
+        public Fuse Fuse([FromBody] Bus bus) {
+            var fuse = _busService.GetMatchingFuse(bus);
+            return fuse;
         }
     }
 }
